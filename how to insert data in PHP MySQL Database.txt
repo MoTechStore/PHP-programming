@@ -1,0 +1,27 @@
+<?php
+// include database connection
+include "database.php";
+
+// create MySql query to insert into table feedback, which contain name,email and feedback columns
+$sql = "INSERT INTO feedback (name,email,feedback) VALUES ('jb','jb@gmail.com','ADOBE is good'), ('jumbe.com','mohamedjumbe@jumbe.com','PHP is good for streaming'), ('barakaMbugwa','mbugwa@gmail.com','I like Machine Learning')";
+
+// mysqli_query($conn,$sql), for this PHP function to execute, it takes two variables $conn which is database connection from database.php as included on the top of this file and $sql which is the query for fetching data from database
+
+if($result = mysqli_query($conn,$sql)){
+	// if data inserted display message Data Inserted
+	echo "Data Inserted";
+}else{
+	// If data failed to insert display the message too
+	echo "Data Not Inserted";
+}
+
+/*
+Author : Noel Moses Mwadende @ MoTech Computers YouTube Channel
+My video goes deep about this tip :
+https://www.youtube.com/watch?v=6N8STSX-bvo
+
+
+
+*/
+
+?>

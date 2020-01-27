@@ -1,0 +1,29 @@
+<?php
+// start session on the top of file before using it
+session_start();
+
+
+// isset function will check if page view is already set, if there is already page view, so the next page view will be view = view + 1, and this will increment, if no page view means else will execute and it will be first view of the page 
+
+if(isset($_SESSION['view'])){
+	// this part excute if view is greater than one continously
+	$_SESSION['view'] = $_SESSION['view'] + 1;
+}else{
+
+// this part this excute if the view=1
+	$_SESSION['view'] = 1;
+}
+
+echo "Page View Is ".$_SESSION['view'];
+// display number of page views
+
+/*
+Author : Noel Moses Mwadende @ MoTech Computers YouTube Channel
+My video goes deep about this tip : 
+https://www.youtube.com/watch?v=wYZcanbp3Kk
+
+
+
+*/
+
+?>

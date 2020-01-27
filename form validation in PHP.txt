@@ -1,0 +1,63 @@
+<?php
+
+if(isset($_POST['send'])){
+    $username = $_POST['username']; 
+    $age = $_POST['age'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if(empty($username) || !ctype_alpha($username)){
+    	die('ERROR : Username Can Not Be Empty And Must Be String');
+    }
+
+    if(empty($age) || !ctype_digit($age)){
+    	die('ERROR : Age Can Not Be Empty And Must Be Numeric');
+    } 
+
+
+    function validateEmailAddress($email){
+    	 return preg_match("/^([a-z0-9_-])+([\.a-z0-9_-])*@([a-z0-9-])+(\
+.[a-z0-9-]+)*\.([a-z]{2,6})$/", strtolower($email));
+    }
+
+  if(empty($email) || !validateEmailAddress($email)){
+  	die('ERROR : Email Can Not Be Empyt And Must Be Correct');
+  }
+
+
+  if(empty($password) || strlen($password) !=8){
+  	die('ERROR : Password Must Be 8 Character Long');
+  }
+
+
+
+}
+
+/*
+Author : Noel Moses Mwadende @ MoTech Computers YouTube Channel
+My video goes deep about this tip :
+
+https://www.youtube.com/watch?v=6fng68EePsY
+
+
+*/
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="" method="POST">
+			Username  : <input type="text" name="username"><br><br>
+			Your Age   : <input type="text" name="age"><br><br>
+			Your Email : <input type="email" name="email"><br><br>
+			Password : <input type="password" name="password"><br><br>
+			       <input type="submit" name="send" value="Submit">
+	</form>
+
+</body>
+</html>

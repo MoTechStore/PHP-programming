@@ -1,0 +1,25 @@
+<?php
+
+/* $conn is the variable to hold PHP MySql database connection, mysqli_connect is the function which perform PHP MySql database connection it takes four parameters, localhost or 127.0.0.1 which is ip address of the local machine, root database user, '' or empty password as password for user root, and books as name of the database
+*/
+
+$conn = mysqli_connect('localhost','root','','books');
+
+if(!$conn){
+	// if connection fail, terminate process and display msql error
+	die("Connection Failed ".mysqli_error());
+}
+// if connection success, display Connection ok on browser
+echo "Connection ok";
+
+// Note : Do not close database connection if you will include this database connection in another file, this will cause errors, mysqli_close($conn), this will cause some errors
+
+/*
+Author : Noel Moses Mwadende @ MoTech Computers YouTube Channel
+My video goes deep about this tip :
+
+https://www.youtube.com/watch?v=BUzMXcMNDWI
+
+
+*/
+?>

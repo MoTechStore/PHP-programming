@@ -1,0 +1,37 @@
+<?php
+// include database connection file
+include "database.php";
+
+// create query to fetch column named name and column feedback from table called feedback
+$sql = "SELECT name,feedback FROM feedback ";
+
+/*
+mysqli_query($conn,$sql), for this PHP function to execute, it takes two variables $conn which is database connection from database.php as included on the top of this file and $sql which is the query for fetching data from database
+
+After that the result of the query is stored in variable called result
+
+
+mysqli_fetch_array, fetch a result as associative, numeric array or both and store result in variable called $row, while loop is used to fetch as rows till they finish,  
+*/
+if($result = mysqli_query($conn,$sql)){
+   while($row = mysqli_fetch_array($result)){
+
+   	echo $row["name"].'   ',$row["feedback"].'</br>';
+   }
+
+// mysqli_free_result, free the memory associated with result, resources are scarce, so free them up after using them
+mysqli_free_result($result);
+
+}
+
+
+/*
+Author : Noel Moses Mwadende @ MoTech Computers YouTube Channel
+My video goes deep about this tip :
+https://www.youtube.com/watch?v=P8YSKCpbGGo
+
+
+*/
+
+?>
+
